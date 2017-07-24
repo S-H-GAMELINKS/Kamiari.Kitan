@@ -150,9 +150,8 @@ def gamemenu_call(messagebox, font, mouse, lineno)
 		#「はい」を押すと終了
 		if messagebox.Popup("ゲームメニューに移行しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
 
-			savedata_screenshot_flag = 1
-
 			#セーブデータ用スクリーンショット取得
+			savedata_screenshot_flag = 1
 			savedata_screenshot_flag = savedata_screenshot(savedata_screenshot_flag)
 
 			gamemenu(messagebox, font, mouse, lineno)
