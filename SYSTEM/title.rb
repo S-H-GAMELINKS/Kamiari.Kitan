@@ -58,7 +58,7 @@ def title(mouse, font, messagebox)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("ロードしますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("ロードしますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						savedata_menu(font, mouse, messagebox, 1, lineno)
 						break
 					end
@@ -73,7 +73,7 @@ def title(mouse, font, messagebox)
 				#終了確認
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("ゲームを終了を終了しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("ゲームを終了を終了しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						exit
 					end
 				end

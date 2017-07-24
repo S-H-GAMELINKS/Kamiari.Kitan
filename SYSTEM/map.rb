@@ -26,7 +26,7 @@ def ap_draw(string, num, font, messagebox)
 	if Input.mouse_push?(M_LBUTTON) then
 
 		#「はい」を押すと終了
-		if messagebox.Popup("#{string}に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+		if messagebox.Popup("#{string}に行きますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 			Flag.set(num)
 		end
 	end

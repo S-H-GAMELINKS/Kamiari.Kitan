@@ -7,7 +7,7 @@ def exit_message(messagebox)
 	if Input.key_push?(K_ESCAPE) then
 
 		#「はい」を押すと終了
-		if messagebox.Popup("ゲームを終了を終了しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+		if messagebox.Popup("ゲームを終了を終了しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 			exit
 		end
 	end

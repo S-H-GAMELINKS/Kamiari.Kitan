@@ -56,7 +56,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("タイトルに戻りますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("タイトルに戻りますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						Flag.set(99)
 						break
 					end
@@ -68,7 +68,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("セーブしますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("セーブしますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						savedata_menu(font, mouse, messagebox, 0, lineno)
 					end
 				end
@@ -79,7 +79,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("ロードしますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("ロードしますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						savedata_menu(font, mouse, messagebox, 1, lineno)
 					end
 				end
@@ -90,7 +90,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("セーブデータを削除しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("セーブデータを削除しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						savedata_menu(font, mouse, messagebox, 2, lineno)
 					end
 				end
@@ -101,7 +101,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("設定を変更しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("設定を変更しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						config(font, mouse, messagebox)
 					end
 				end
@@ -112,7 +112,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				#左クリック時の処理
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
-					if messagebox.Popup("ゲームに戻りますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+					if messagebox.Popup("ゲームに戻りますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 						return Flag.ref
 					end
 				end
@@ -132,7 +132,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 		#右クリック時の処理
 		if Input.mouse_push?(M_RBUTTON) then
 			#「はい」を押すと終了
-			if messagebox.Popup("ゲームに戻りますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+			if messagebox.Popup("ゲームに戻りますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 				return Flag.ref
 			end
 		end
@@ -148,7 +148,7 @@ def gamemenu_call(messagebox, font, mouse, lineno)
 	#右クリック時の処理
 	if Input.mouse_push?(M_RBUTTON) then
 		#「はい」を押すと終了
-		if messagebox.Popup("ゲームメニューに移行しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+		if messagebox.Popup("ゲームメニューに移行しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 
 			#セーブデータ用スクリーンショット取得
 			savedata_screenshot_flag = 1
