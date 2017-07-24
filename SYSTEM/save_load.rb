@@ -40,7 +40,7 @@ def savedata_load(number)
 		Flag.set(File.open("DATA/SAVE/savedata#{number}_flag.txt", "r").read.to_i)
 		Lineno.set(File.open("DATA/SAVE/savedata#{number}_lineno.txt", "r").read.to_i)
 	else
-		#load_error_messageを出す予定
+		messagebox.Popup("セーブデータ#{number}はありません！", 0, "神在奇譚", 1 + 48 )
 	end
 end
 
@@ -63,7 +63,7 @@ def savedata_delete(number)
 		File.delete("DATA/SAVE/savedata#{number}_lineno.txt")
 		File.delete("DATA/SAVE/savedata#{number}.png")
 	else
-		#delete_error_messageを出す予定
+		messagebox.Popup("セーブデータ#{number}はありません！", 0, "神在奇譚", 1 + 48 )
 	end
 end
 
