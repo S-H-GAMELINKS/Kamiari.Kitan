@@ -45,7 +45,7 @@ def savedata_load(number)
 end
 
 #セーブデータにセーブ
-def savedata_save(number, flag, lineno)
+def savedata_save(number, lineno)
 
 	#ルート管理変数の書き込み（セーブデータの書き込み)
 	File.write("DATA/SAVE/savedata#{number}_flag.txt", Flag.ref.to_s)
@@ -94,6 +94,22 @@ def savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back, strin
 	Window.draw_font(100, 450, "BACK", font)
 end
 
+#セーブデータメニュー描画の切り替え
+def select_savedata_switch(messagebox, string, num, lineno)
+
+	if Input.mouse_push?(M_LBUTTON) then
+		if messagebox.Popup("セーブデータ１を#{string}しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
+			if string == "ロード" then
+				savedata_load(num)
+			elsif string == "セーブ" then
+				savedata_save(num, lineno)
+			else
+				savedata_delete(num)
+			end
+		end
+	end
+end
+
 #savedata_menuメソッドの定義
 def savedata_menu(font, mouse, messagebox, number, lineno)
 	
@@ -126,49 +142,19 @@ def savedata_menu(font, mouse, messagebox, number, lineno)
 				#セーブデータ画像の描画
 				Window.draw_scale(100, -100, savedata1_screenshot, 0.5, 0.5, 1)
 
-				if Input.mouse_push?(M_LBUTTON) then
-					if messagebox.Popup("セーブデータ１を#{string}しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						if string == "ロード" then
-							savedata_load(1)
-						elsif string == "セーブ" then
-							savedata_save(1, $flag, lineno)
-						else
-							savedata_delete(1)
-						end
-					end
-				end
+				select_savedata_switch(messagebox, string, 1, lineno)
 
 			when savedata2
 				#セーブデータ画像の描画
 				Window.draw_scale(100, -100, savedata2_screenshot, 0.5, 0.5, 1)
 
-				if Input.mouse_push?(M_LBUTTON) then
-					if messagebox.Popup("セーブデータ２を#{string}しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						if string == "ロード" then
-							savedata_load(2)
-						elsif string == "セーブ" then
-							savedata_save(2, $flag, lineno)
-						else
-							savedata_delete(2)
-						end
-					end
-				end
+				select_savedata_switch(messagebox, string, 2, lineno)
 
 			when savedata3
 				#セーブデータ画像の描画
 				Window.draw_scale(100, -100, savedata3_screenshot, 0.5, 0.5, 1)
 
-				if Input.mouse_push?(M_LBUTTON) then
-					if messagebox.Popup("セーブデータ３を#{string}しますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						if string == "ロード" then
-							savedata_load(3)
-						elsif string == "セーブ" then
-							savedata_save(3, $flag, lineno)
-						else
-							savedata_delete(3)
-						end
-					end
-				end
+				select_savedata_switch(messagebox, string, 3, lineno)
 
 			when back
 				if Input.mouse_push?(M_LBUTTON) then
