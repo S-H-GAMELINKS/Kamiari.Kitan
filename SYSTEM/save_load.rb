@@ -33,7 +33,7 @@ def savedata_screenshot_load
 end
 
 #セーブデータのロード
-def savedata_load(number)
+def savedata_load(number, messagebox)
 	
 	#セーブデータの有無チェック
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
@@ -54,7 +54,7 @@ def savedata_save(number, lineno)
 end
 
 #セーブデータを削除
-def savedata_delete(number)
+def savedata_delete(number, messagebox)
 
 	#セーブデータの有無チェック
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
@@ -99,13 +99,13 @@ def select_savedata_switch(messagebox, string, num, lineno)
 
 	#左クリック時にセーブ/ロード/削除
 	if Input.mouse_push?(M_LBUTTON) then
-		if messagebox.Popup("セーブデータ１を#{string}しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
+		if messagebox.Popup("セーブデータ#{num}を#{string}しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 			if string == "ロード" then
-				savedata_load(num)
+				savedata_load(num, messagebox)
 			elsif string == "セーブ" then
 				savedata_save(num, lineno)
 			else
-				savedata_delete(num)
+				savedata_delete(num, messagebox)
 			end
 		end
 	end
