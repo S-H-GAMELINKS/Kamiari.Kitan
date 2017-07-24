@@ -79,7 +79,7 @@ def savedata_object
 end
 
 #メニュー画面の描画メソッド
-def savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back, string)
+def savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back)
 
 	#ロード用オブジェクト
 	savedata1.draw
@@ -88,9 +88,9 @@ def savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back, strin
 	mouse.draw
 
 	#各種ゲームメニューの描画
-	Window.draw_font(100, 300, "セーブデータ１" + "#{string}" , font)
-	Window.draw_font(100, 350, "セーブデータ２" + "#{string}", font)
-	Window.draw_font(100, 400, "セーブデータ３" + "#{string}", font)
+	Window.draw_font(100, 300, "セーブデータ１", font)
+	Window.draw_font(100, 350, "セーブデータ２", font)
+	Window.draw_font(100, 400, "セーブデータ３", font)
 	Window.draw_font(100, 450, "BACK", font)
 end
 
@@ -142,7 +142,7 @@ def savedata_menu(font, mouse, messagebox, number, lineno)
 		mouse.x, mouse.y = Input.mouse_pos_x, Input.mouse_pos_y
 
 		#セーブデータ処理のメニュー描画
-		savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back, string)
+		savedata_menu_draw(font, mouse, savedata1, savedata2, savedata3, back)
 
 		case mouse
 
