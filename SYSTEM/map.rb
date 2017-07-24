@@ -5,9 +5,12 @@ def map_load
 
 	#マップ画像の読込
 	map = Sprite.new(0, 0, Image.load( "DATA/MAP/map.png"))
-	ap1 = Sprite.new(120, 80, Image.load("DATA/MAP/ap.png")); ap2 = Sprite.new(40, 180, Image.load("DATA/MAP/ap.png"))
-	ap3 = Sprite.new(160, 170, Image.load("DATA/MAP/ap.png")); ap4 = Sprite.new(220, 230, Image.load("DATA/MAP/ap.png"))
-	ap5 = Sprite.new(200, 380, Image.load("DATA/MAP/ap.png")); ap6 = Sprite.new(350, 300, Image.load("DATA/MAP/ap.png"))
+	ap1 = Sprite.new(120, 80, Image.load("DATA/MAP/ap.png"))
+	ap2 = Sprite.new(40, 180, Image.load("DATA/MAP/ap.png"))
+	ap3 = Sprite.new(160, 170, Image.load("DATA/MAP/ap.png"))
+	ap4 = Sprite.new(220, 230, Image.load("DATA/MAP/ap.png"))
+	ap5 = Sprite.new(200, 380, Image.load("DATA/MAP/ap.png"))
+	ap6 = Sprite.new(350, 300, Image.load("DATA/MAP/ap.png"))
 
 	#フォントサイズ
 	map_font = Font.new(32)
