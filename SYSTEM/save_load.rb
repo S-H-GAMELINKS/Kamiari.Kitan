@@ -97,6 +97,7 @@ end
 #セーブデータメニュー描画の切り替え
 def select_savedata_switch(messagebox, string, num, lineno)
 
+	#左クリック時にセーブ/ロード/削除
 	if Input.mouse_push?(M_LBUTTON) then
 		if messagebox.Popup("セーブデータ１を#{string}しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 			if string == "ロード" then
@@ -158,7 +159,6 @@ def savedata_menu(font, mouse, messagebox, number, lineno)
 
 			when back
 				if Input.mouse_push?(M_LBUTTON) then
-					puts Flag.set(temp_flag)
 					break
 				end
 		end
