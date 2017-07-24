@@ -18,6 +18,20 @@ def map_load
 	return map, ap1, ap2, ap3, ap4, ap5, ap6, map_font
 end
 
+#各地名(アクセスポイント)描画メソッド
+def ap_draw(string, num, font, messagebox)
+	Window.draw_font(500, 200, "#{string}", font, z:2)
+
+	#左クリック時の処理
+	if Input.mouse_push?(M_LBUTTON) then
+
+		#「はい」を押すと終了
+		if messagebox.Popup("#{string}に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
+			Flag.set(num)
+		end
+	end
+end
+
 #マップ描画メソッド(メイン)
 def map(font, messagebox)
 
@@ -44,82 +58,22 @@ def map(font, messagebox)
 		case mouse
 
 			when ap1
-				Window.draw_font(500, 200, "日御碕灯台", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("日御碕灯台に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(5)
-						break
-					end
-				end
+				ap_draw("日御碕灯台", 5, font, messagebox)
 
 			when ap2
-				Window.draw_font(500, 200, "稲佐の浜", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("稲佐の浜に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(4)
-						break
-					end
-				end
+				ap_draw("稲佐の浜", 4, font, messagebox)
 
 			when ap3
-				Window.draw_font(500, 200, "出雲大社", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("出雲大社に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(2)
-						break
-					end
-				end
+				ap_draw("出雲大社", 2, font, messagebox)
 
 			when ap4
-				Window.draw_font(500, 200, "旧大社駅", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("旧大社駅に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(3)
-						break
-					end
-				end
+				ap_draw("旧大社駅", 3, font, messagebox)
 
 			when ap5
-				Window.draw_font(500, 200, "須佐神社", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("須佐神社に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(7)
-						break
-					end
-				end
+				ap_draw("須佐神社", 7, font, messagebox)
 
 			when ap6
-				Window.draw_font(500, 200, "立久恵峡", font, z:2)
-
-				#左クリック時の処理
-				if Input.mouse_push?(M_LBUTTON) then
-
-					#「はい」を押すと終了
-					if messagebox.Popup("立久恵峡に行きますか？", 10, "神在奇譚", 4 + 32 ) == 6 then
-						Flag.set(6)
-						break
-					end
-				end
+				ap_draw("立久恵峡", 6, font, messagebox)
 		end
 
 		#地名（アクセスポイント）の描画
