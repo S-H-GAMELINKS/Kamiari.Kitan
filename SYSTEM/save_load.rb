@@ -111,12 +111,8 @@ def select_savedata_switch(messagebox, string, num, lineno)
 	end
 end
 
-#savedata_menuメソッドの定義
-def savedata_menu(font, mouse, messagebox, number, lineno)
-	
-	#各種描画用オブジェクト生成
-	savedata1, savedata2, savedata3, back = savedata_object
-	savedata1_screenshot, savedata2_screenshot, savedata3_screenshot = savedata_screenshot_load
+#セーブメニュー用文字列のセット
+def savedata_string_set(number)
 
 	if number == 1 then
 		string = "ロード"
@@ -125,6 +121,17 @@ def savedata_menu(font, mouse, messagebox, number, lineno)
 	else
 		string = "削除"
 	end
+
+	return string
+end
+
+#savedata_menuメソッドの定義
+def savedata_menu(font, mouse, messagebox, number, lineno)
+	
+	#各種描画用オブジェクト生成
+	savedata1, savedata2, savedata3, back = savedata_object
+	savedata1_screenshot, savedata2_screenshot, savedata3_screenshot = savedata_screenshot_load
+	string = savedata_string_set(number)
 	
 	temp_flag = Flag.ref
 
