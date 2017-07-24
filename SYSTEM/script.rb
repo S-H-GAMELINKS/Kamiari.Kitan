@@ -36,38 +36,7 @@ class Script
 	#スクリプト読込
 	def read
 
-		case Flag.ref
-			#プロローグの読込
-			when 1
-				@text = File.open("DATA/STR/prologue.txt", "r")
-			#出雲大社
-			when 2
-				@text = File.open("DATA/STR/出雲大社.txt", "r")
-			#旧大社駅
-			when 3
-				@text = File.open("DATA/STR/旧大社駅.txt", "r")
-			#稲佐の浜
-			when 4
-				@text = File.open("DATA/STR/稲佐の浜.txt", "r")
-			#日御碕灯台
-			when 5
-				@text = File.open("DATA/STR/日御碕灯台.txt", "r")
-			#立久恵峡
-			when 6
-				@text = File.open("DATA/STR/立久恵峡.txt", "r")
-			#須佐神社
-			when 7
-				@text = File.open("DATA/STR/須佐神社.txt", "r")
-			#BADエンド
-			when 8
-				@text = File.open("DATA/STR/BAD.txt", "r")
-			#GOODエンド
-			when 9
-				@text = File.open("DATA/STR/GOOD.txt", "r")
-			#TRUEエンド
-			when 10
-				@text = File.open("DATA/STR/TRUE.txt", "r")
-		end
+		@text = File.open("DATA/STR/#{Flag.ref}.txt", "r")
 
 		return @string = @text.read
 	end
