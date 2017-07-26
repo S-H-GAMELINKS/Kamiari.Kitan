@@ -83,7 +83,7 @@ def map(font, messagebox)
 		gamemenu_call(messagebox, font, mouse, lineno); Input.mouse_enable=(true)
 
 		#セーブデータ読み込み時の処理(flag変数が異なる場合)
-		if  Flag.ref != 11 then
+		if  Flag.ref != temp_flag then
 			puts Flag.ref
 			break
 		end

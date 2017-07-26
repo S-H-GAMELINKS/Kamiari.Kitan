@@ -45,6 +45,7 @@ class Script
 	def draw(font, messagebox, mouse)
 
 		lineno = 0
+		temp_flag = Flag.ref
 
 		@string.each_line do |line|
 
@@ -67,12 +68,16 @@ class Script
 					line.gsub!(/se\d\d/, "")
 				when /EOF/
 					line.gsub!(/EOF/, "")
+					if temp_flag == Flag.ref then
 						Flag.set(11)
+						puts Flag.ref
+					else
+						return Flag.ref
+					end
 				else
 					lineno += 1
 
 					temp_lineno = Lineno.ref
-					temp_flag = Flag.ref
 
 					if lineno >= Lineno.ref then
 						Window.loop do
@@ -89,21 +94,13 @@ class Script
 
 							#エスケープキーで終了
 							exit_message(messagebox)
-
-							#セーブデータ読み込み時の処理(flag変数が異なる場合)
-							if  temp_flag != Flag.ref && temp_lineno != Lineno.ref then
-								puts "Flag.ref = #{Flag.ref}"
-								break
-							end
-
-							#セーブデータ読み込み時の処理(flag変数が異なる場合)
-							if temp_lineno != Lineno.ref then
-								puts "Flag.ref = #{Flag.ref}, line"
-								break
-							end
-
 						end
 					end
+			end
+
+			#セーブデータの読込時の処理
+			if temp_flag != Flag.ref then
+				break
 			end
 		end
 	end

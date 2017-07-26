@@ -39,6 +39,8 @@ def savedata_load(number, messagebox)
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
 		Flag.set(File.open("DATA/SAVE/savedata#{number}_flag.txt", "r").read.to_i)
 		Lineno.set(File.open("DATA/SAVE/savedata#{number}_lineno.txt", "r").read.to_i)
+		puts Flag.ref
+		puts Lineno.ref
 	else
 		messagebox.Popup("セーブデータ#{number}はありません！", 0, "神在奇譚", 1 + 48 )
 	end

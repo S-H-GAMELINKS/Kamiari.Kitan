@@ -113,7 +113,7 @@ def gamemenu(messagebox, font, mouse, lineno)
 				if Input.mouse_push?(M_LBUTTON) then
 					#「はい」を押すと終了
 					if messagebox.Popup("ゲームに戻りますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
-						return Flag.ref
+						break
 					end
 				end
 
