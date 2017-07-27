@@ -143,10 +143,16 @@ def gamemenu(messagebox, font, mouse, lineno)
 end
 
 #ゲームメニュー呼び出しメソッド
-def gamemenu_call(messagebox, font, mouse, lineno)
+def gamemenu_call(messagebox, font, mouse, lineno, bgm)
 
 	#右クリック時の処理
 	if Input.mouse_push?(M_RBUTTON) then
+
+		#BGM停止処理
+		if bgm != nil then
+			bgm.stop
+		end
+
 		#「はい」を押すと終了
 		if messagebox.Popup("ゲームメニューに移行しますか？", 0, "神在奇譚", 4 + 32 ) == 6 then
 
@@ -155,6 +161,11 @@ def gamemenu_call(messagebox, font, mouse, lineno)
 			savedata_screenshot_flag = savedata_screenshot(savedata_screenshot_flag)
 
 			gamemenu(messagebox, font, mouse, lineno)
+		end
+
+		#BGMの再生再開
+		if bgm != nil then
+			bgm.play
 		end
 	end
 end

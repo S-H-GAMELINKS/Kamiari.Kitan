@@ -45,6 +45,9 @@ def map(font, messagebox)
 
 	mouse = Sprite.new(0, 0, Image.load("DATA/MAP/usagi.png"))
 
+	bgm = Sound.new("DATA/BGM/BGM01.wav")
+	bgm.play
+
 	#マップ描画ループ
 	Window.loop do
 
@@ -80,16 +83,18 @@ def map(font, messagebox)
 		Window.draw_font(500, 450, "出雲の國", font, z:2)
 
 		#ゲームメニュー呼び出し
-		gamemenu_call(messagebox, font, mouse, lineno); Input.mouse_enable=(true)
+		gamemenu_call(messagebox, font, mouse, lineno, bgm); Input.mouse_enable=(true)
 
 		#セーブデータ読み込み時の処理(flag変数が異なる場合)
 		if  Flag.ref != temp_flag then
 			puts Flag.ref
+			bgm.stop
 			break
 		end
 
 		#@@flagが99の場合タイトルに戻る
 		if Flag.ref == 99 then
+			bgm.stop
 			break
 		end
 

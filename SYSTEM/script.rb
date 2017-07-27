@@ -89,17 +89,8 @@ class Script
 							#エンターキーで次の文字列を呼び出す
 							if Input.mouse_push?(M_LBUTTON); break; end
 
-							#ゲームメニュー呼び出し時のBGM停止処理
-							if Input.mouse_push?(M_RBUTTON) then
-								if @bgm == nil then
-								
-								else
-									@bgm.stop
-								end
-							end
-
 							#ゲームメニュー呼び出し
-							gamemenu_call(messagebox, font, mouse, lineno)
+							gamemenu_call(messagebox, font, mouse, lineno, @bgm)
 
 							#エスケープキーで終了
 							exit_message(messagebox)
