@@ -100,6 +100,10 @@ class Script
 
 			#セーブデータの読込時の処理
 			if temp_flag != Flag.ref then
+				if @bgm != nil then
+					@bgm.stop
+				end
+			
 				break
 			end
 		end
