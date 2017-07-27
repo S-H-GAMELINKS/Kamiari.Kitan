@@ -50,6 +50,8 @@ class Script
 		@string.each_line do |line|
 
 			case line
+				when /\/\//
+					line.gsub!(/\/\/+/, "")
 				when /char\d\d/
 					line.chomp!
 					@char = Sprite.new(150, 0,Image.load("DATA/CHAR/#{line}.png"))
