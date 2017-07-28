@@ -4,7 +4,7 @@
 require_relative 'SYSTEM/header'
 
 #タイトル名
-Window.caption=("")
+Window.caption=("神在奇譚")
 
 #マウスポインタ作成
 mouse = Sprite.new(0, 0, Image.new(10, 10, C_DEFAULT))
