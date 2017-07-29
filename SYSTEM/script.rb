@@ -50,24 +50,30 @@ class Script
 		@string.each_line do |line|
 
 			case line
+				#コメント処理
 				when /\/\//
 					line.gsub!(/\/\/+/, "")
+				#立ち絵ロード処理
 				when /char\d\d/
 					line.chomp!
 					@char = Sprite.new(150, 0,Image.load("DATA/CHAR/#{line}.png"))
 					line.gsub!(/char\d\d/, "")
+				#背景ロード処理
 				when /bg\d\d/
 					line.chomp!
 					@bg = Sprite.new(0, 0, Image.load("DATA/BG/#{line}.png"))
 					line.gsub!(/bg\d\d/, "")
+				#BGM再生処理
 				when /bgm\d\d/
 					line.chomp!
 					@bgm = Sound.new("DATA/BGM/#{line}.wav"); @bgm.play
 					line.gsub!(/bgm\d\d/, "")
+				#SE再生処理
 				when /se\d\d/
 					line.chomp!
 					@se = Sound.new("DATA/SE/#{line}.wav"); @se.play
 					line.gsub!(/se\d\d/, "")
+				#ルート終了タグ
 				when /EOF/
 					line.gsub!(/EOF/, "")
 					if temp_flag == Flag.ref then
