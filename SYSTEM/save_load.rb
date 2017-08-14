@@ -37,8 +37,8 @@ def savedata_load(number, messagebox)
 	
 	#セーブデータの有無チェック
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
-		Flag.set(File.open("DATA/SAVE/savedata#{number}_flag.txt", "r").read.to_i)
-		Lineno.set(File.open("DATA/SAVE/savedata#{number}_lineno.txt", "r").read.to_i)
+		Flag.set(File.open("DATA/SAVE/savedata#{number}_flag", "r").read.to_i)
+		Lineno.set(File.open("DATA/SAVE/savedata#{number}_lineno", "r").read.to_i)
 		puts Flag.ref
 		puts Lineno.ref
 	else
@@ -50,8 +50,8 @@ end
 def savedata_save(number, lineno)
 
 	#ルート管理変数の書き込み（セーブデータの書き込み)
-	File.write("DATA/SAVE/savedata#{number}_flag.txt", Flag.ref.to_s)
-	File.write("DATA/SAVE/savedata#{number}_lineno.txt", lineno.to_s)
+	File.write("DATA/SAVE/savedata#{number}_flag", Flag.ref.to_s)
+	File.write("DATA/SAVE/savedata#{number}_lineno", lineno.to_s)
 	File.rename("DATA/SAVE/savedata.png", "DATA/SAVE/savedata#{number}.png")
 end
 
@@ -61,8 +61,8 @@ def savedata_delete(number, messagebox)
 	#セーブデータの有無チェック
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
 		#セーブデータの削除
-		File.delete("DATA/SAVE/savedata#{number}_flag.txt")
-		File.delete("DATA/SAVE/savedata#{number}_lineno.txt")
+		File.delete("DATA/SAVE/savedata#{number}_flag")
+		File.delete("DATA/SAVE/savedata#{number}_lineno")
 		File.delete("DATA/SAVE/savedata#{number}.png")
 	else
 		messagebox.Popup("セーブデータ#{number}はありません！", 0, "神在奇譚", 1 + 48 )
