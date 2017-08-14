@@ -96,6 +96,15 @@ class Script
 
 							#エスケープキーで終了
 							exit_message(messagebox)
+
+							#セーブデータ読み込み時の処理(flag変数が異なる場合)
+							if  Flag.ref != temp_flag then
+								puts Flag.ref
+								if @bgm != nil then
+									@bgm.stop
+								end
+								break
+							end
 						end
 					end
 			end
