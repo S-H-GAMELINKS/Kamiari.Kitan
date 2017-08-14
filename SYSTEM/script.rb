@@ -110,7 +110,6 @@ class Script
 								if @bgm != nil then
 									@bgm.stop
 								end
-								return 
 								break
 							end
 						end
