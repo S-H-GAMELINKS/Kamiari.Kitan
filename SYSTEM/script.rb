@@ -105,17 +105,16 @@ class Script
 								end
 								break
 							end
+
+							if Flag.ref == temp_flag && Lineno.ref != temp_lineno then
+								if @bgm != nil then
+									@bgm.stop
+								end
+								return 
+								break
+							end
 						end
 					end
-			end
-
-			#セーブデータの読込時の処理
-			if temp_flag != Flag.ref then
-				if @bgm != nil then
-					@bgm.stop
-				end
-			
-				break
 			end
 		end
 	end
