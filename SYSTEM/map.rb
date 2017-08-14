@@ -90,10 +90,8 @@ def map(font, messagebox)
 			puts Flag.ref
 			bgm.stop
 			break
-		end
-
 		#@@flag‚ª99‚Ìê‡ƒ^ƒCƒgƒ‹‚É–ß‚é
-		if Flag.ref == 99 then
+		elsif Flag.ref == 99 then
 			bgm.stop
 			break
 		end

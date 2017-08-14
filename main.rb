@@ -4,7 +4,7 @@
 require_relative 'SYSTEM/header'
 
 #タイトル名
-Window.caption=("")
+Window.caption=("神在奇譚")
 
 #マウスポインタ作成
 mouse = Sprite.new(0, 0, Image.new(10, 10, C_DEFAULT))
@@ -18,6 +18,7 @@ messagebox = WIN32OLE.new('WScript.Shell')
 #ルート管理変数
 Flag.set(99)
 
+#各スクリプト処理メソッド
 def ScriptRoot(font, messagebox, mouse)
 	script = Script.new
 	script.read
