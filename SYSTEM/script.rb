@@ -112,11 +112,13 @@ class Script
 								break
 							end
 
+							#セーブデータ読み込み時の処理(lineno変数が異なる場合)
 							if Flag.ref == temp_flag && Lineno.ref != temp_lineno then
 								if @bgm != nil then
 									@bgm.stop
 								end
-								break
+								Lineno.set(0)
+								return 0
 							end
 						end
 					end
