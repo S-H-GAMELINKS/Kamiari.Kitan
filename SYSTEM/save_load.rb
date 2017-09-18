@@ -36,7 +36,7 @@ end
 def savedata_load(number, messagebox)
 	
 	#セーブデータの有無チェック
-	if File.exist?("DATA/SAVE/savedata#{number}.png") then
+	if File.exist?("DATA/SAVE/savedata#{number}.save") then
 
 		data = File.open("DATA/SAVE/savedata#{number}.save", "r+")
 		save = data.read
@@ -66,10 +66,9 @@ end
 def savedata_delete(number, messagebox)
 
 	#セーブデータの有無チェック
-	if File.exist?("DATA/SAVE/savedata#{number}.png") then
+	if File.exist?("DATA/SAVE/savedata#{number}.save") then
 		#セーブデータの削除
-		File.delete("DATA/SAVE/savedata#{number}_flag")
-		File.delete("DATA/SAVE/savedata#{number}_lineno")
+		File.delete("DATA/SAVE/savedata#{number}.save")
 		File.delete("DATA/SAVE/savedata#{number}.png")
 	else
 		messagebox.Popup("セーブデータ#{number}はありません！", 0, "神在奇譚", 1 + 48 )
