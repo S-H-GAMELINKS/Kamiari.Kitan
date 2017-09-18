@@ -37,8 +37,14 @@ def savedata_load(number, messagebox)
 	
 	#セーブデータの有無チェック
 	if File.exist?("DATA/SAVE/savedata#{number}.png") then
-		Flag.set(File.open("DATA/SAVE/savedata#{number}_flag", "r").read.to_i)
-		Lineno.set(File.open("DATA/SAVE/savedata#{number}_lineno", "r").read.to_i)
+
+		data = File.open("DATA/SAVE/savedata#{number}.save", "r+")
+		save = data.read
+		save.gsub!(/#<struct Struct::SaveData flag=| linno=|>/, "")
+
+		Flag.set(save.gsub(/,\d/, "").to_i)
+		Lineno.set(save.gsub(/\d,/, "").to_i)
+
 		puts Flag.ref
 		puts Lineno.ref
 	else
@@ -49,9 +55,10 @@ end
 #セーブデータにセーブ
 def savedata_save(number, lineno)
 
-	#ルート管理変数の書き込み（セーブデータの書き込み)
-	File.write("DATA/SAVE/savedata#{number}_flag", Flag.ref.to_s)
-	File.write("DATA/SAVE/savedata#{number}_lineno", lineno.to_s)
+	#セーブデータの書き込み
+	savedata = Struct.new("SaveData", :flag, :linno)
+	data = savedata.new(Flag.ref, lineno)
+
 	File.rename("DATA/SAVE/savedata.png", "DATA/SAVE/savedata#{number}.png")
 end
 
