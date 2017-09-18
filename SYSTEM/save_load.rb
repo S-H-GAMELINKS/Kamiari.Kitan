@@ -59,6 +59,8 @@ def savedata_save(number, lineno)
 	savedata = Struct.new("SaveData", :flag, :linno)
 	data = savedata.new(Flag.ref, lineno)
 
+
+	File.write("DATA/SAVE/savedata#{number}.save", data)
 	File.rename("DATA/SAVE/savedata.png", "DATA/SAVE/savedata#{number}.png")
 end
 
